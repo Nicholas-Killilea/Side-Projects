@@ -1,0 +1,113 @@
+body {
+  background-color: #121225;
+  color: #E6E6E6;
+  margin: 0;
+  padding: 0;
+}
+/* Main profile container */
+.user-profile-page {
+  max-width: 90%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1A1A2E;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(255, 0, 179, 0.479);
+  overflow: visible; /* Allow child elements to be visible outside container */
+}
+/* Profile header section */
+.user-profile-header {
+  background: linear-gradient(135deg, #0F3460 0%, #16213E 100%);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.user-profile-header h1 {
+  font-size: 2.5rem;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: inline-block;
+}
+.user-profile-header h1::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, #6246EA, #E45858);
+  bottom: -10px;
+  left: 10%;
+  border-radius: 2px;
+}
+/* Profile section containers */
+.profile-section {
+  margin-bottom: 40px;
+  position: relative;
+}
+.section-title {
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(98, 70, 234, 0.4);
+}
+/* Content container for all sections */
+.profile-section-content {
+  background: rgba(26, 26, 46, 0.6);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1; /* Base z-index for sections */
+}
+/* Special styling for ratings and reviews sections to ensure clickability */
+.ratings-section,
+.reviews-section {
+  z-index: 5 !important; /* Higher z-index to ensure clickability */
+  position: relative;
+  overflow: visible !important;
+  pointer-events: auto !important;
+}
+/* Ensure all children of these sections are clickable */
+.ratings-section *,
+.reviews-section * {
+  pointer-events: auto !important;
+}
+/* Fix for any visibility or stacking context issues */
+.ratings-section .game-ratings-grid,
+.reviews-section .reviews-list {
+  position: relative;
+  z-index: 10 !important;
+}
+/* Hide UserRatings title as we're using our own section titles */
+.ratings-section .game-ratings-title,
+.reviews-section .reviews-title {
+  display: none;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .user-profile-page {
+    margin: 20px auto;
+    padding: 15px;
+  }
+  .user-profile-header {
+    padding: 20px;
+  }
+  .user-profile-header h1 {
+    font-size: 2rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .user-profile-header h1 {
+    font-size: 1.8rem;
+  }
+  .profile-section-content {
+    padding: 15px;
+  }
+}

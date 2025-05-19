@@ -1,0 +1,37 @@
+.gameGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px; /* Consistent padding between tiles */
+  padding: 20px;
+  justify-items: center;
+}
+
+.loading {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 50px auto;
+  color: #666;
+}
+
+.error {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 50px auto;
+  color: #dc3545;
+  max-width: 800px;
+  padding: 20px;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 8px;
+}
+
+.noGames {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 50px auto;
+  color: #666;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

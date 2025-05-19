@@ -1,0 +1,124 @@
+/* Container for the entire ratings section */
+.game-ratings-container {
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* Title styling */
+.game-ratings-title {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+/* Decorative underline for the title */
+.game-ratings-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #9c27b0, #3f51b5);
+  border-radius: 3px;
+}
+
+/* Grid layout for the ratings cards */
+.game-ratings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Loading state */
+.game-ratings-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #9c27b0;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.game-ratings-loading p {
+  color: #bb86fc;
+  font-size: 1.1rem;
+}
+
+/* Error state */
+.game-ratings-error {
+  background-color: rgba(255, 82, 82, 0.15);
+  border-left: 5px solid #ff5252;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.game-ratings-error p {
+  color: #ff8a80;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0;
+}
+
+/* Empty state */
+.game-ratings-empty {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-ratings-empty p {
+  color: #aaaaaa;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 868px) {
+  .game-ratings-title {
+    font-size: 1.8rem;
+  }
+  
+  .game-ratings-grid {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .game-ratings-title {
+    font-size: 1.5rem;
+  }
+  
+  .game-ratings-loading p,
+  .game-ratings-error p,
+  .game-ratings-empty p {
+    font-size: 1rem;
+  }
+}

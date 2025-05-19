@@ -1,0 +1,53 @@
+/* IconButton.css - Updated version to match your game details page */
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #2a2a2a;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.icon-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.icon-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon-specific colors that match your UI */
+.icon-button.playing {
+  background: linear-gradient(135deg, #4a9ae8, #6246ea);
+}
+
+.icon-button.finished {
+  background: linear-gradient(135deg, #805ad5, #e45858);
+}
+
+.icon-button.wishlist {
+  background: linear-gradient(135deg, #e45858, #f6ad55);
+}
+
+.icon-button.selected {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  border: 2px solid #ffffff;
+}
+
+.icon-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}

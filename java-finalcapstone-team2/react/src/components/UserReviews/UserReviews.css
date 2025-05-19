@@ -1,0 +1,297 @@
+.review-card {
+    position: relative;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+    width: calc(100% - 32px); /* Match UserRatingCard width */
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(156, 39, 176, 0.2);
+  }
+  
+  .review-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #9c27b0, #3f51b5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .review-card:hover::before {
+    opacity: 1;
+  }
+  
+  /* Full overlay for consistent gradient */
+  .review-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, 
+      rgba(0, 0, 0, 0.1) 0%, 
+      rgba(0, 0, 0, 0.7) 50%, 
+      rgba(0, 0, 0, 0.9) 100%);
+    padding: 20px;
+    transition: background 0.3s ease;
+  }
+  
+  .review-card:hover .review-overlay {
+    background: linear-gradient(to bottom, 
+      rgba(0, 0, 0, 0.2) 0%, 
+      rgba(0, 0, 0, 0.8) 50%, 
+      rgba(0, 0, 0, 0.95) 100%);
+  }
+  
+  
+  .reviews-title {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  /* Game title at top */
+  .game-title {
+    margin: 0 0 auto 0;
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  .review-username {
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    margin-top: 5px;
+  }
+  
+  /* Hide actual image since we use background */
+  .game-image {
+    display: none;
+  }
+  
+  /* Content area in middle */
+  .review-content {
+    margin-top: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 60px; /* Add space for the buttons */
+  }
+  
+  /* Regular review text */
+  .review-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 1.1rem;
+    quotes: """ """ "'" "'";
+  }
+  
+  .review-text::before {
+    content: open-quote;
+    font-size: 1.5em;
+    line-height: 0.1em;
+    vertical-align: -0.3em;
+    margin-right: 0.1em;
+    opacity: 0.7;
+  }
+  
+  .review-text::after {
+    content: close-quote;
+    font-size: 1.5em;
+    line-height: 0.1em;
+    vertical-align: -0.3em;
+    margin-left: 0.1em;
+    opacity: 0.7;
+  }
+  
+  /* Edit field styling */
+  .edit-field {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-family: inherit;
+    resize: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .edit-field:focus {
+    outline: none;
+    border-color: #90caf9;
+    box-shadow: 0 0 8px rgba(144, 202, 249, 0.6);
+  }
+  
+  /* Delete confirmation styling */
+  .delete-confirmation {
+    background-color: rgba(220, 53, 69, 0.8);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .delete-confirmation p {
+    margin: 0 0 15px 0;
+    color: white;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  /* Button area at bottom */
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 10px;
+    margin-top: auto;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  
+  .button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+  }
+  
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .save-button, .edit-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .save-button:hover, .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .save-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .cancel-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Status messages */
+  .status-message {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: center;
+    z-index: 2;
+    
+  }
+  
+  .success-message {
+    color: white;
+    background-color: rgba(40, 167, 69, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .error-message {
+    color: white;
+    background-color: rgba(220, 53, 69, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Responsive adjustments - match the UserRatingCard responsiveness */
+  @media (max-width: 768px) {
+    .review-card {
+      padding: 12px;
+    }
+    
+    .game-title {
+      font-size: 1.1rem;
+    }
+    
+    .review-text {
+      -webkit-line-clamp: 2;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .review-card {
+      height: 250px;
+    }
+    
+    .game-title {
+      font-size: 1rem;
+    }
+  }

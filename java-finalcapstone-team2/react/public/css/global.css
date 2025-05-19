@@ -1,0 +1,326 @@
+
+:root {
+    --font-primary: 'Play', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+  }
+  
+  /* Apply globally */
+  * {
+    font-family: var(--font-primary);
+  }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: rgb(28, 23, 29);
+    margin: 0;
+    height: 100%;
+    padding-top: 60px; /* Same as your navbar height */
+    
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+#app {
+    width: 100%;
+    min-height: 100vh; /* Use viewport height instead of percentage */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+}
+
+#main-content {
+    grid-area: main;
+    flex: 1;
+}
+
+#app-header {
+    grid-area: header;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+#app-header a {
+    text-decoration: none;
+    color: #000;
+}
+
+#app-header a:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+#app-header a:visited {
+    color: #000;
+}
+
+#app-info {
+    display: flex;
+    align-items: center;
+}
+
+.app-logo {
+    height: 40px;
+    margin-right: 1rem;
+}
+
+#app-footer {
+    grid-area: footer;
+    background-color: #000000;
+    color: #ffffff;
+    border-top: #ffffff 1px solid;
+    font-size: 75%;
+    text-align: center;
+    opacity: 0.7;
+}
+
+/* Modernized Navbar Styles (with round buttons) */
+#main-nav {
+    grid-area: nav;
+  
+}
+
+/* Navigation list container */
+/* .nav-list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    border-bottom: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+} */
+
+/* Individual nav item container */
+.nav-link {
+    margin: 0 8px;
+    position: relative;
+}
+
+/* Home link positioning */
+.nav-link:first-child {
+    margin-right: 20px;
+}
+
+/* Search link positioning */
+.nav-link:last-child {
+    margin-left: auto;
+}
+
+/* Middle links spacing */
+.nav-link:not(:first-child):not(:last-child) {
+    margin: 0 5px;
+}
+
+/* Nav link styling with rounded corners */
+/* .nav-link a {
+    display: block;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+} */
+
+/* Hover effect */
+/* .nav-link a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+} */
+
+/* Active link */
+/* a.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-weight: 600;
+} */
+
+/* Hamburger menu button - hidden by default */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-toggle:focus {
+    outline: none;
+}
+
+.menu-toggle:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile header - hidden by default */
+.nav-header {
+    display: none;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 576px) {
+    /* Show mobile header */
+    .nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    
+    /* Show hamburger button */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Vertical stacked menu */
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        height: auto;
+        padding: 0;
+    }
+    
+    /* Full width links */
+    .nav-link {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .nav-link a {
+        padding: 15px 20px;
+        border-radius: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Keep rounded style for Home in header */
+    .nav-header .nav-link a {
+        border-radius: 20px;
+        width: auto;
+    }
+    
+    /* Reset margins */
+    .nav-link:first-child,
+    .nav-link:last-child {
+        margin: 0;
+    }
+}
+
+/* Other existing styles */
+.icon-button {
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    padding: 0;
+    margin-right: 0.5rem;
+}
+
+.icon-button-inactive {
+    color: grey;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+svg.external-link {
+    font-size: 0.8rem;
+    color: #707070;
+    padding-left: 5px;
+}
+
+/* Form styles */
+form {
+    margin-bottom: 1rem;
+}
+
+label {
+    text-align: right;
+    display: inline-block;
+    margin-right: 15px;
+    width: 150px;
+}
+
+input {
+    display: inline-block;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+}
+
+.btn-primary {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+/* Table styles */
+table {
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+}
+
+thead {
+    margin-bottom: 0.5rem;
+}
+
+tbody {
+    border: 1px solid rgb(136, 193, 231);
+}
+
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+tr {
+    padding: 0.5rem;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(136, 193, 231, 0.3);
+}

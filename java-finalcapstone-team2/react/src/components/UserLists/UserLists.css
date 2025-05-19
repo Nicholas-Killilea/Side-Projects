@@ -1,0 +1,230 @@
+.space-y-8 {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    height: 100%;
+    width: 100%;
+}
+.list-section {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.text-xl {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+.font-bold {
+    font-weight: 700;
+}
+.mb-4 {
+    margin-bottom: 1rem;
+}
+/* List container styles */
+.games-list-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 450px; /* Allow space for the header */
+}
+/* Empty list message */
+.empty-list-message {
+    text-align: center;
+    padding: 2rem;
+    color: #AAAAAA;
+    font-style: italic;
+}
+/* Game card styles */
+.game-list-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.game-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.game-list-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+.game-list-details {
+    flex: 1;
+}
+.game-list-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.game-list-meta {
+    display: flex;
+    align-items: center;
+    color: #CCCCCC;
+    font-size: 0.9rem;
+}
+.game-list-rating {
+    margin-right: 1rem;
+}
+.game-list-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+.game-list-button {
+    flex: 1;
+    background-color: rgba(74, 144, 226, 0.3);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.game-list-button:hover {
+    background-color: rgba(74, 144, 226, 0.6);
+}
+.game-list-button.remove {
+    background-color: rgba(220, 53, 69, 0.3);
+}
+.game-list-button.remove:hover {
+    background-color: rgba(220, 53, 69, 0.6);
+}
+.game-list-button.details {
+    background-color: rgba(108, 117, 125, 0.3);
+}
+.game-list-button.details:hover {
+    background-color: rgba(108, 117, 125, 0.6);
+}
+/* Custom scrollbar */
+.games-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+.games-list-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+}
+.games-list-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+}
+.games-list-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .space-y-8 {
+        flex-direction: column;
+        height: auto;
+    }
+    .list-section {
+        margin-bottom: 1.5rem;
+        height: auto;
+    }
+    .games-list-container {
+        max-height: 300px;
+    }
+}
+@media (max-width: 768px) {
+    .games-list-container {
+        max-height: 250px;
+    }
+    .game-list-item {
+        flex-direction: row;
+        align-items: center;
+    }
+    .game-list-image {
+        width: 100px;
+        height: 56px;
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+    .game-list-details {
+        flex: 1;
+        min-width: 0;
+    }
+    .game-list-actions {
+        margin-top: 0;
+        margin-left: 0.75rem;
+    }
+}
+@media (max-width: 576px) {
+    .space-y-8 {
+        gap: 1rem;
+    }
+    .game-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .game-list-image {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+    }
+    .game-list-actions {
+        margin-top: 0.75rem;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Add these styles to your UserLists.css file */
+
+/* Ensure the games list container has padding at the bottom */
+.games-list-container {
+    padding-bottom: 60px !important;
+    position: relative;
+  }
+  
+  /* Ensure action buttons are always clickable */
+  .game-list-actions {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+  }
+  
+  /* Make buttons more obviously clickable */
+  .game-list-button, 
+  .icon-button {
+    cursor: pointer;
+    position: relative;
+    z-index: 15;
+    pointer-events: auto;
+  }
+  
+  /* Add space after the last item */
+  .game-list-item:last-child {
+    margin-bottom: 60px;
+  }
+  
+  /* Fix for scrollable containers that might interfere with buttons */
+  .no-scroll-container {
+    overflow: visible !important;
+  }
+  
+  /* Ensure the container has room for all items */
+  .space-y-8 {
+    margin-bottom: 60px;
+  }

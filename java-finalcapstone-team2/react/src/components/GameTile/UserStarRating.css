@@ -1,0 +1,51 @@
+.user-star-rating {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    /* margin-top: 10px; */
+    margin-bottom: 5px;
+    padding-top: 3px;
+    width: 65%;
+  }
+  
+  .user-star {
+    margin-right: 5px;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.1s;
+  }
+  
+  .user-star:hover {
+    transform: scale(1.1);
+  }
+  
+  .user-star.filled {
+    color: #FFD43B !important; /* Gold color for filled stars */
+  }
+  
+  .user-star.empty {
+    color: #ccc !important; /* Light gray for empty stars */
+  }
+  
+  /* Add some animation when stars are clicked */
+  .user-star.filled {
+    animation: pulse 0.3s ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Style for the rating text */
+  .rating-text {
+    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+  
+  /* Error message styling */
+  .rating-error {
+    color: #e53935;
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }

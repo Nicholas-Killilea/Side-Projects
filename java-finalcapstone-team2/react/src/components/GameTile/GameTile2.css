@@ -1,0 +1,411 @@
+/* Add this to your GameTile2.css file */
+
+/* Specific styles for buttons in game tiles that won't affect other uses */
+.game-card__icon-button {
+  width: 30px !important;  /* Smaller width */
+  height: 30px !important; /* Smaller height */
+  font-size: 0.9rem !important; /* Smaller icon */
+  margin: 0 5px !important; /* Adjust spacing */
+}
+
+/* For vertical layout option */
+.game-card__options-container--vertical {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: 8px;
+}
+
+/* Tooltip styles */
+.game-card__icon-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.game-card__tooltip {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.game-card__icon-button-wrapper:hover .game-card__tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Add a little triangle pointer */
+.game-card__tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+/* Ensure tooltip display even when button is disabled */
+.game-card__icon-button-wrapper .icon-button.disabled + .game-card__tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.game-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 345px;
+  height: 300px;
+  background: #fff;
+  position: relative;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+}
+
+.game-card--rated-five {
+  border-color: #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.game-card--rated-low {
+  border-color: #FF4500;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+.game-card__image-container {
+  position: relative;
+  height: 300px;
+  transition: height 0.3s ease;
+}
+
+.game-card:hover .game-card__image-container {
+  height: 150px;
+}
+
+.game-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-card__genre-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-align: center;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-card:hover .game-card__title {
+  top: 13%;
+}
+
+.game-card__title--default {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.7em;
+  font-weight: 800;
+  background: #000000; /* Dark gray for contrast */
+  padding: 10px 16px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  margin: 0;
+  text-align: center;
+  width: calc(100% - 32px);
+  z-index: 10;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: .65;
+  color: white;
+}
+
+/* .game-card:hover .game-card__title--default {
+  display: none;
+} */
+
+.game-card__details {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  height: 150px;
+  /* background: rgba(255, 0, 179, 0.479); */
+  /* background: rgba(76, 29, 149, 0.85); */
+  background: linear-gradient(to bottom, rgb(47, 9, 104), rgb(119, 3, 128));
+}
+
+.game-card:hover .game-card__details {
+  opacity: 1;
+}
+
+.game-card__title {
+  font-size: 1.4em;
+  margin: 0;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-card__avg-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.game-card__avg-star {
+  font-size: 1.1em;
+}
+
+.game-card__avg-star.filled,
+.game-card__avg-star.half-filled,
+.game-card__avg-star.empty {
+  color: #FFD43B;
+  fill: #FFD43B;
+}
+
+.game-card__avg-star.half-filled svg {
+  fill: #FFD43B;
+}
+
+.game-card__details .user-star {
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.game-card__details .user-star.filled,
+.game-card__details .user-star.half-filled {
+  color: #FFD43B;
+  fill: #FFD43B;
+}
+
+.game-card__details .user-star.empty {
+  color: #ccc; /* Gray outline for empty stars */
+  fill: none;
+}
+
+.game-card__details .user-star.half-filled svg {
+  fill: #FFD43B;
+}
+
+.game-card__avg-rating-text {
+  font-size: 1em;
+  color: rgb(197, 9, 197);
+  font-weight: bold;
+}
+
+.game-card__rating-text {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.game-card__error {
+  color: red;
+  font-size: 0.8em;
+}
+
+/* .game-card__details-button {
+  display: block;
+  padding: 3px;
+  background: #007bff;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background 0.2s;
+  margin-top: 8px;
+  margin-left: -12px;
+  margin-right: -12px;
+  width: calc(100% + 34px);
+} */
+
+.game-card__details-button:hover {
+  background: #0056b3;
+}
+
+.game-card__score {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.game-card__score--rated-five {
+  background: #FFD700;
+  color: #333;
+}
+
+.game-card__score--rated-low {
+  background: #FF4500;
+  color: white;
+}
+.game-card__blurred-section {
+  position: relative;
+  width: 100%;  /* Ensure it stays within the card */
+  overflow: hidden;  /* Keep the blur effect contained */
+}
+
+.game-card__blurred-content {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.game-card__login-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  z-index: 10;
+  border-radius: 5px;
+  /* padding: 1rem; */
+  text-align: center;
+}
+
+.game-card__login-button{
+  display: inline-block;
+  background: linear-gradient(45deg, #6246ea, #e45858);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 10px 24px;
+  margin: .5em;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(98, 70, 234, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-button.selected {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  border: 2px solid #ffffff;
+}
+
+.game-card__new-title{
+  padding: 0px;
+  margin: 0px;
+
+}
+
+/* Make the icons work well in the game card context */
+.game-card__options-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0;
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+  .game-card {
+      width: 100%;
+      max-width: 300px;
+      height: 250px;
+  }
+
+  .game-card__image-container {
+      height: 250px;
+  }
+
+  .game-card:hover .game-card__image-container {
+      height: 125px;
+  }
+
+  .game-card__details {
+      padding: 10px;
+      gap: 8px;
+      height: 125px;
+  }
+
+  .game-card__title--default {
+      font-size: 1.5em;
+      font-weight: 800;
+      padding: 8px 14px;
+      border: 1px solid #333;
+      background: #1a1a1a;
+  }
+
+  .game-card__title {
+      font-size: 1.2em;
+  }
+
+  .game-card__avg-star,
+  .game-card__details .user-star {
+      font-size: 1em;
+  }
+/* 
+  .game-card__avg-rating-text,
+  .game-card__rating-text {
+      font-size: 0.8em;
+  } */
+
+  .game-card__error {
+      font-size: 0.75em;
+  }
+
+  .game-card__details-button {
+      padding: 3px;
+      font-size: 0.85em;
+      margin-top: 6px;
+      margin-left: -10px;
+      margin-right: -10px;
+      width: calc(100% + 20px);
+  }
+
+  .game-card__score {
+      font-size: 0.85em;
+      padding: 4px 8px;
+  }
+  
+}
