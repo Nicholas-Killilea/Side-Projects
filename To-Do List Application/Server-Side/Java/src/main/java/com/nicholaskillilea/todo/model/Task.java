@@ -2,7 +2,7 @@ package com.nicholaskillilea.todo.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class tasks {
+public class Task {
     private int id;
     private String task;
     private String description;
@@ -12,6 +12,17 @@ public class tasks {
     private BigDecimal estimatedHours;
     private String status;
 
+    public Task () {
+    }
+
+    public Task (String task, String description, int priority, LocalDate dueDate, BigDecimal estimatedHours, String status) {
+        this.task = task;
+        this.description = description;
+        this.priority = priority;
+        this.dueDate = dueDate;
+        this.estimatedHours = estimatedHours;
+        this.status = status;
+    }
 
     public int getId() {
         return id;
@@ -69,3 +80,4 @@ public class tasks {
         this.status = status;
     }
 }
+
