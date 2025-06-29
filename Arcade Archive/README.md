@@ -1,5 +1,5 @@
 # Arcade Archive
-Welcome to Arcade Archive! This full-stack application was built using Java and PostgreSQL on the backend, and React and JavaScript on the frontend.
+Welcome to Arcade Archive! This project was completed during my time at Tech Elevator as my final capstone project. This full-stack application was built using Java and PostgreSQL on the backend, and React and JavaScript on the frontend.
 
 Everything you need to explore or build the project can be found in the individual directories:
 
