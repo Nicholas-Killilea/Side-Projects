@@ -1,5 +1,12 @@
-# Final Capstone
-​
-This directory contains all of the starter projects for the final capstone. 
-​
- Each project contains instructions that provides information about the starting code and explains how to get started with the final capstone project.
+# Arcade Archive
+Welcome to Arcade Archive! This full-stack application was built using Java and PostgreSQL on the backend, and React and JavaScript on the frontend.
+
+Everything you need to explore or build the project can be found in the individual directories:
+
+ • java/ – Contains the backend source code, database setup, and project configuration.
+
+ • react/ – Contains the frontend source code built with React.
+
+Each directory includes its own README and setup instructions to help you get started.
+
+Below are a few screenshots showcasing the final user interface of the completed project.
