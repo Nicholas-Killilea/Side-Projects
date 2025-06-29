@@ -9,4 +9,4 @@ Everything you need to explore or build the project can be found in the individu
 
 Each directory includes its own README and setup instructions to help you get started.
 
-Below are a few screenshots showcasing the final user interface of the completed project.
+Below are a few screenshots showcasing the final user interface of the completed project. Thank you for viewing!
