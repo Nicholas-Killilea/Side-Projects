@@ -1,5 +1,5 @@
 # Arcade Archive
-Welcome to Arcade Archive! This full-stack application was built using Java and PostgreSQL on the backend, and React and JavaScript on the frontend.
+Arcade Archive is a full-stack web application designed to help users manage their personal game collection. Built with Java and PostgreSQL on the backend and React and JavaScript on the frontend, it offers a seamless and interactive user experience.
 
 Everything you need to explore or build the project can be found in the individual directories:
 
@@ -7,11 +7,10 @@ Everything you need to explore or build the project can be found in the individu
 
  • react/ – Contains the frontend source code built with React.
 
-Each directory includes its own README and setup instructions to help you get started. This project was completed during my time at Tech Elevator as my final capstone project. 
+Each directory includes its own README and setup instructions to help you get started. This project was developed as the final capstone for my 14-week full-stack development bootcamp at Tech Elevator.
 
 Below are a few screenshots showcasing the final user interface of the completed project. Thank you for viewing!
-
-# Screenshots
+# User Interface Preview
 ![Screenshot 2025-06-28 204530](https://github.com/user-attachments/assets/e368c5d9-1293-468a-b4d1-2245b7f2bd20)
 ![Screenshot 2025-06-28 205223](https://github.com/user-attachments/assets/2cc62a05-2485-4ca4-9367-74d43cf66308)
 ![Screenshot 2025-06-28 205258](https://github.com/user-attachments/assets/78d7ee94-ad14-4c10-a726-a7df26f91c5d)
