@@ -27,48 +27,119 @@ public class JdbcTaskDao implements TaskDao{
         while (results.next()) {
             tasks.add(mapRowToTask(results));
         }
-
         return tasks;
     }
 
     @Override
     public Task getTaskById(int id) {
-        return null;
+        String sql = "SELECT * FROM tasks WHERE id = ? ORDER BY id";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, id);
+
+        if (result.next()) {
+            return mapRowToTask(result);
+        } else {
+            return null;
+        }
     }
 
     @Override
     public Task getTaskByName(String name) {
-        return null;
+        String sql = "SELECT * FROM tasks WHERE task ILIKE ? ORDER BY task";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, name);
+
+        if (result.next()){
+            return mapRowToTask(result);
+        } else {
+            return null;
+        }
     }
 
     @Override
     public List<Task> getTaskByPriority(int priority) {
-        return null;
+        List<Task> tasks = new ArrayList<>();
+        String sql = "SELECT * FROM tasks WHERE priority = ? ORDER BY priority";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, priority);
+        while (results.next()) {
+            tasks.add(mapRowToTask(results));
+        }
+        return tasks;
     }
 
     @Override
     public List<Task> getTaskByStatus(String status) {
-        return null;
+        List<Task> tasks = new ArrayList<>();
+        String sql = "SELECT * FROM tasks WHERE status = ? ORDER BY status";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, status);
+        while (results.next()) {
+            tasks.add(mapRowToTask(results));
+        }
+        return tasks;
     }
 
     @Override
     public List<Task> getTaskByDueDate(LocalDate dueDate) {
-        return null;
+        List<Task> tasks = new ArrayList<>();
+        String sql = "SELECT * FROM tasks WHERE due_date = ? ORDER BY due_date";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, dueDate);
+        while (results.next()) {
+            tasks.add(mapRowToTask(results));
+        }
+        return tasks;
     }
 
     @Override
     public Task createTask(Task task) {
-        return null;
+        String sql = """
+        INSERT INTO tasks (task, description, priority, created_on, due_date, estimated_hours, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        RETURNING id;
+        """;
+
+        task.setCreatedOn(LocalDate.now());
+
+        int newId = jdbcTemplate.queryForObject(sql, int.class,
+            task.getTask(),
+            task.getDescription(),
+            task.getPriority(),
+            task.getCreatedOn(),
+            task.getDueDate(),
+            task.getEstimatedHours(),
+            task.getStatus()
+        );
+
+        task.setId(newId);
+        return task;
     }
 
     @Override
     public boolean updateTask(Task task) {
-        return false;
+        String sql = """
+        UPDATE tasks
+        SET task = ?, description = ?, priority = ?, due_date = ?, estimated_hours = ?, status = ?
+        WHERE id = ?;
+        """;
+
+        int rowsUpdated = jdbcTemplate.update(sql,
+            task.getTask(),
+            task.getDescription(),
+            task.getPriority(),
+            task.getDueDate(),
+            task.getEstimatedHours(),
+            task.getStatus(),
+            task.getId()
+        );
+
+        return rowsUpdated > 0;
     }
 
     @Override
     public boolean deleteTaskById(int id) {
-        return false;
+        String sql = "DELETE FROM tasks WHERE id = ?";
+        int rowsDeleted = jdbcTemplate.update(sql, id);
+        return rowsDeleted > 0;
     }
 
     private Task mapRowToTask(SqlRowSet rowSet) {
