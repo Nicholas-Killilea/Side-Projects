@@ -12,6 +12,7 @@ public class Task {
     private BigDecimal estimatedHours;
     private String status;
 
+
     public Task () {
     }
 
@@ -23,6 +24,7 @@ public class Task {
         this.estimatedHours = estimatedHours;
         this.status = status;
     }
+
 
     public int getId() {
         return id;
